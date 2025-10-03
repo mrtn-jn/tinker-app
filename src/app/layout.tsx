@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { SplashScreen } from '@/components/SplashScreen'
 
 export const metadata: Metadata = {
-  title: 'Sneaker Heart',
-  description: 'Descubre las zapatillas más exclusivas con Sneaker Heart',
+  title: 'tinker',
+  description: 'Hacé match con el par perfecto para vos.',
   icons: {
     icon: '/info/sneakers-heart-logo.png',
     apple: '/info/sneakers-heart-logo.png',
@@ -17,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body className='overflow-x-hidden'>
+        <SplashScreen />
+        {children}
+      </body>
     </html>
   )
 }

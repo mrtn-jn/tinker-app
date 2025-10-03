@@ -6,6 +6,7 @@ export interface SneakerProfile {
   purchase_type: string;
   availability_type: string;
   images: string[];
+  'InfoBox-bg'?: string;  // Optional background color class (e.g., "bg-[#788d42]")
 }
 
 export type SwipeAction = 'LIKE' | 'DISLIKE';

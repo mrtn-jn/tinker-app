@@ -5,8 +5,9 @@
         "purchase_type": "Raffle",
         "availability_type": "Lanzamiento 10/10",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-x-yuto-matcha.png"
-        ]
+            "/info/sneakers-images/yuto.jpg"
+        ],
+        "InfoBox-bg": "bg-[#788d42]"
     },
     {
         "name": "Nike SB Dunk Low Pro Tourmaline",
@@ -14,17 +15,19 @@
         "purchase_type": "A definir",
         "availability_type": "Lanzamiento 24/10",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-pro-tourmaline.png"
-        ]
+            "/info/sneakers-images/tourmaline.jpg"
+        ],
+        "InfoBox-bg": "bg-[#60896c]"
     },
     {
         "name": "Nike SB Dunk High & Blazer Antihero",
-        "description": "Noventoso y callejero 😈",
+        "description": "Noventoso y callejero",
         "purchase_type": "Venta Directa",
         "availability_type": "Disponible en Drifters",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-hight-blaze-antihero.png"
-        ]
+            "/info/sneakers-images/antihero.jpg"
+        ],
+        "InfoBox-bg": "bg-[#978738]"
     },
     {
         "name": "Nike SB Dunk Low Pro x Riot Skateshop",
@@ -32,7 +35,8 @@
         "purchase_type": "Venta Directa",
         "availability_type": "Disponible en Drifters",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-riot-skateshop.png"
-        ]
+            "/info/sneakers-images/riot.jpg"
+        ],
+        "InfoBox-bg": "bg-[#98323c]"
     }
 ]

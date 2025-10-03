@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #E63946;
+  --color-brand-red: #FF0000/*#E63946*/;
   --color-overlay-green: #06D6A0;
   --color-overlay-red: #EF476F;
+  --animate-pulse-logo: pulse-logo 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-logo {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
 }
 
 body {

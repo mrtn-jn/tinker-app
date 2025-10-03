@@ -1,21 +1,23 @@
 [
     {
         "name": "Dunk Low x Yuto Matcha",
-        "description": "50% Matcha, 50% nipón.",
+        "description": "50% Matcha, 50% nipón",
         "purchase_type": "Raffle",
-        "availability_type": "Lanzamiento 10/10",
+        "availability_type": "Lanzamiento 13/10",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-x-yuto-matcha.png"
-        ]
+            "/info/sneakers-images/yuto.jpg"
+        ],
+        "InfoBox-bg": "bg-[#788d42]"
     },
     {
         "name": "Dunk Low Pro Tourmaline",
-        "description": "Un homenaje al rodeo y a los pioneros afroamericanos que marcaron la cultura del Oeste estadounidense.",
+        "description": "Un homenaje al rodeo y a los pioneros afroamericanos que marcaron la cultura del Oeste estadounidense",
         "purchase_type": "A definir",
         "availability_type": "Lanzamiento 24/10",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-pro-tourmaline.png"
-        ]
+            "/info/sneakers-images/tourmaline.jpg"
+        ],
+        "InfoBox-bg": "bg-[#60896c]"
     },
     {
         "name": "Dunk High & Blazer Antihero",
@@ -23,8 +25,9 @@
         "purchase_type": "Venta Directa",
         "availability_type": "Disponible en Drifters",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-hight-blaze-antihero.png"
-        ]
+            "/info/sneakers-images/antihero.jpg"
+        ],
+        "InfoBox-bg": "bg-[#978738]"
     },
     {
         "name": "Dunk Low Pro x Riot Skateshop",
@@ -32,7 +35,8 @@
         "purchase_type": "Venta Directa",
         "availability_type": "Disponible en Drifters",
         "images": [
-            "/info/sneakers-images/nike-sb-dunk-low-riot-skateshop.png"
-        ]
+            "/info/sneakers-images/riot.jpg"
+        ],
+        "InfoBox-bg": "bg-[#98323c]"
     }
 ]

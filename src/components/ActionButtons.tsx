@@ -10,7 +10,7 @@ export interface ActionButtonsProps {
  */
 export function ActionButtons({ onLike, onDislike, disabled = false }: ActionButtonsProps) {
   return (
-    <div className="flex justify-center gap-8 py-6">
+    <div className="flex justify-center gap-8 py-0">
       <button
         onClick={onDislike}
         disabled={disabled}

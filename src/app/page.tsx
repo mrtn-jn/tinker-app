@@ -29,9 +29,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black">
-      <Header />
-      
-      <main className="container mx-auto pt-12 pb-8">
+      {/* <Header /> */}
+
+      <main className="container mx-auto pb-8 md:pt-4">
         {isComplete ? (
           <CompletionScreen />
         ) : currentSneaker ? (

@@ -27,8 +27,6 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
   const [overlayOpacity, setOverlayOpacity] = useState(0);
   const [imageError, setImageError] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [titleOffset, setTitleOffset] = useState(0);
-  const titleRef = useRef<HTMLDivElement>(null);
 
   // Expose triggerOverlay method to parent
   useImperativeHandle(ref, () => ({
@@ -92,14 +90,6 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
     setImageError(false);
   }, [sneaker]);
 
-  // Calculate title offset to center it between image and info
-  useEffect(() => {
-    if (titleRef.current) {
-      const height = titleRef.current.offsetHeight;
-      setTitleOffset(height / 2);
-    }
-  }, [sneaker.name]); // Recalculate when name changes
-
   const primaryImage = sneaker.images[0] || '/placeholder-sneaker.svg';
   const rotation = translateX / 20; // Subtle rotation effect
 
@@ -108,9 +98,12 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
       <div
         className="relative bg-white rounded-none md:rounded-2xl shadow-2xl overflow-hidden select-none touch-none"
         style={{
-          transform: `translateX(${translateX}px) rotate(${rotation}deg)`,
+          transform: `translate3d(${translateX}px, 0, 0) rotate(${rotation}deg)`,
           transition: isDragging ? 'none' : 'transform 0.3s ease-out',
           cursor: enabled && !isAnimating ? (isDragging ? 'grabbing' : 'grab') : 'default',
+          willChange: isDragging ? 'transform' : 'auto',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -121,7 +114,7 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
         <SwipeOverlay type={overlayType} opacity={overlayOpacity} />
 
         {/* Sneaker Image */}
-        <div className="relative w-full aspect-[5/4] bg-gray-100">
+        <div className="relative w-full aspect-[3/2] bg-gray-100">
           {imageError ? (
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
@@ -129,6 +122,7 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
                 alt="Imagen no disponible"
                 fill
                 className="object-contain p-8"
+                draggable={false}
               />
             </div>
           ) : (
@@ -140,27 +134,26 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
               onError={() => setImageError(true)}
               sizes="(max-width: 768px) 100vw, 448px"
               priority
+              draggable={false}
             />
           )}
         </div>
 
         {/* Sneaker Info */}
         <div className="relative">
-          {/* Title overlapping image and info */}
-          <div 
-            className="absolute left-0 right-0 z-10 px-4"
-            style={{ top: `-${titleOffset}px` }}
-          >
-            <div ref={titleRef} className="py-3">
-              <p className='text-center font-bold text-base text-white' style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6), 0 0 10px rgba(0,0,0,0.4)' }}>Nike SB</p>
-              <p className='text-center font-bold text-2xl uppercase text-white' style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.2)' }}>
-                {sneaker.name}
-              </p>
-            </div>
-          </div>
           
-          <InfoBox>
-            <div className="px-4 pt-18 pb-8 space-y-4 uppercase">
+          <InfoBox bgColor={sneaker['InfoBox-bg']}>
+            {/* Title */}
+            <div className="px-4">
+              <div className="py-3">
+                <p className='text-center font-bold text-base text-shadow-black' >Nike SB</p>
+                <p className='text-center font-extrabold text-2xl uppercase text-black'>
+                  {sneaker.name}
+                </p>
+              </div>
+            </div>
+
+            <div className="px-4 pb-8 space-y-4 uppercase">
               <div className='border border-black'>
                 <div className='p-2'>
                   <p className='font-semibold normal-case text-xs'>Tipo de compra</p>
