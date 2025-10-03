@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Nike SB Dunk Low x Yuto Matcha",
+        "description": "50% Matcha, 50% nipón.",
+        "purchase_type": "Raffle",
+        "availability_type": "Lanzamiento 10/10",
+        "images": [
+            "/info/sneakers-images/nike-sb-dunk-low-x-yuto-matcha.png"
+        ]
+    },
+    {
+        "name": "Nike SB Dunk Low Pro Tourmaline",
+        "description": "Un homenaje al rodeo y a los pioneros afroamericanos que marcaron la cultura del Oeste estadounidense.",
+        "purchase_type": "A definir",
+        "availability_type": "Lanzamiento 24/10",
+        "images": [
+            "/info/sneakers-images/nike-sb-dunk-low-pro-tourmaline.png"
+        ]
+    },
+    {
+        "name": "Nike SB Dunk High & Blazer Antihero",
+        "description": "Noventoso y callejero 😈",
+        "purchase_type": "Venta Directa",
+        "availability_type": "Disponible en Drifters",
+        "images": [
+            "/info/sneakers-images/nike-sb-dunk-hight-blaze-antihero.png"
+        ]
+    },
+    {
+        "name": "Nike SB Dunk Low Pro x Riot Skateshop",
+        "description": "Nací en Burdeos, donde el skate se mezcla con la tradición del vino 🍷",
+        "purchase_type": "Venta Directa",
+        "availability_type": "Disponible en Drifters",
+        "images": [
+            "/info/sneakers-images/nike-sb-dunk-low-riot-skateshop.png"
+        ]
+    }
+]

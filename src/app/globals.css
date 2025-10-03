@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #E63946;
+  --color-overlay-green: #06D6A0;
+  --color-overlay-red: #EF476F;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  touch-action: pan-y;
+}

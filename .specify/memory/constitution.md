@@ -1,50 +1,88 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT:
+Version Change: [TEMPLATE] → 1.0.0
+Modified Principles: N/A (Initial creation)
+Added Sections: Core Principles (3), Technology Stack, Development Workflow, Governance
+Removed Sections: N/A
+Templates Status:
+  ✅ plan-template.md - Aligned (no testing gates needed)
+  ✅ spec-template.md - Aligned (business focus maintained)
+  ✅ tasks-template.md - Aligned (Phase 3.2 Tests can be skipped per constitution)
+Follow-up TODOs: None
+-->
+
+# Sneaker Heart Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity First
+Every feature must solve a real user need with the minimal viable implementation. Avoid premature optimization, over-engineering, or speculative features. Static generation is preferred over dynamic rendering when possible.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: As a minimal static webapp, complexity is our enemy. The project intentionally avoids backend infrastructure, authentication, and databases to maintain simplicity and fast iteration.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Static-First Architecture
+All pages MUST be statically generated at build time using Next.js static export. No server-side rendering, no API routes, no backend services.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: Static hosting (Vercel, Netlify, GitHub Pages) provides zero-cost deployment, infinite scalability, and maximum reliability without infrastructure management.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Component Reusability
+UI components MUST be reusable and composable. Use Tailwind CSS utility classes for styling. Avoid inline styles or CSS modules unless absolutely necessary.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Tailwind's utility-first approach combined with React components enables rapid development and consistent design without custom CSS overhead.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technology Stack
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Required Stack**:
+- **Framework**: Next.js (App Router with static export)
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript (preferred) or JavaScript
+- **Package Manager**: npm, yarn, or pnpm
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Explicitly Excluded**:
+- ❌ Authentication/login systems
+- ❌ Databases (SQL, NoSQL, or otherwise)
+- ❌ Backend APIs or server routes
+- ❌ Testing frameworks (unit, integration, or e2e)
+- ❌ State management libraries (Redux, Zustand, etc.) unless justified
+
+**Optional Enhancements** (only when needed):
+- Static data sources (JSON files, markdown)
+- Third-party embeds (YouTube, maps, social media)
+- Client-side interactivity (React hooks, local storage)
+
+## Development Workflow
+
+**Build Process**:
+1. All features developed as static pages or components
+2. Build verification via `next build` - MUST succeed
+3. Visual verification in browser - no automated tests required
+4. Deploy static output to hosting platform
+
+**File Organization**:
+- `/src/app` - Next.js pages and layouts (App Router)
+- `/src/components` - Reusable React components
+- `/public` - Static assets (images, fonts, etc.)
+- `/src/styles` - Global CSS and Tailwind config
+
+**Quality Gates**:
+- Code MUST compile without errors
+- Pages MUST render correctly in browser
+- Responsive design MUST work on mobile and desktop
+- No broken links or missing assets
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution defines the non-negotiable boundaries for Sneaker Heart development. All implementation decisions MUST align with the principles of simplicity, static architecture, and minimal dependencies.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**:
+- Constitution changes require explicit justification
+- Version bumps follow semantic versioning (MAJOR.MINOR.PATCH)
+- Updated guidance documents MUST reflect constitutional changes
+
+**Complexity Justification**:
+If a feature requires deviation from these principles (e.g., adding a database, authentication, or dynamic API), it MUST be explicitly documented with:
+1. Why the static approach is insufficient
+2. What alternatives were considered
+3. Migration plan and complexity assessment
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-01 | **Last Amended**: 2025-10-01
