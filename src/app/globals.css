@@ -8,7 +8,7 @@
 }
 
 @keyframes pulse-logo {
-  0%, 100% { 
+  0% { 
     transform: scale(1);
     opacity: 1;
   }
@@ -16,10 +16,47 @@
     transform: scale(0.95);
     opacity: 0.9;
   }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 body {
   margin: 0;
   padding: 0;
   touch-action: pan-y;
+}
+
+/* Email Collection: Blind-lift animation */
+@keyframes blind-lift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-66.66vh); /* Move up by 2/3 of viewport height */
+  }
+}
+
+/* Logo drag and shrink - single animation for all devices */
+@keyframes logo-drag-shrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, calc(-50% - 33.34vh)) scale(0.75);
+  }
+}
+
+.animate-blind-lift {
+  animation: blind-lift 1200ms ease-out forwards;
+  will-change: transform;
+}
+
+.animate-logo-drag-shrink {
+  animation: logo-drag-shrink 1200ms ease-out forwards;
+  will-change: transform;
 }

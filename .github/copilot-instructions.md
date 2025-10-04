@@ -1,30 +1,38 @@
 # sneaker-heart-simple Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2025-10-01
+Auto-generated from all feature plans. Last updated: 2025-10-03
 
 ## Active Technologies
-- TypeScript 5.x (or JavaScript ES2022+) + Next.js 14+ (App Router, static export), Tailwind CSS 3.x, React 18+ (001-sneaker-swipe-feature)
-- TypeScript 5.9.3 + Next.js 15.5.4 (App Router, static export), React 19.1.1, Tailwind CSS 4.1.14 (002-me-gustaria-agregar)
-- N/A (client-side only, no persistence) (002-me-gustaria-agregar)
-- Static JSON file (info/sneakers-data.json) (003-infobox-background-color)
+- TypeScript 5.9.3 + Next.js 15.5.4 (App Router, static export), React 19.1.1, Tailwind CSS 4.1.14
+- Google Sheets API v4 (client-side, no backend) for email storage
+- localStorage for session persistence (permanent flags)
+- CSS animations (keyframes, transform-based for GPU acceleration)
 
 ## Project Structure
 ```
-backend/
-frontend/
-tests/
+src/
+  components/        # React components (EmailCollectionScreen, SplashScreen, etc.)
+  hooks/            # Custom hooks (useEmailSubmission)
+  lib/              # External API integrations (googleSheets.ts)
+  types/            # TypeScript interfaces (email.ts, sneaker.ts)
+  utils/            # Pure functions (emailValidation.ts)
+  app/              # Next.js App Router pages
+info/               # Static data (sneakers-data.json)
+specs/              # Feature specifications
+.env.local          # Environment variables (git-ignored)
 ```
 
 ## Commands
-npm test; npm run lint
+npm run dev; npm run build; npm start
 
 ## Code Style
-TypeScript 5.x (or JavaScript ES2022+): Follow standard conventions
+TypeScript 5.9.3: Strict mode, explicit types, functional patterns
 
 ## Recent Changes
-- 003-infobox-background-color: Added TypeScript 5.9.3 + Next.js 15.5.4 (App Router, static export), React 19.1.1, Tailwind CSS 4.1.14
-- 002-me-gustaria-agregar: Added TypeScript 5.9.3 + Next.js 15.5.4 (App Router, static export), React 19.1.1, Tailwind CSS 4.1.14
-- 001-sneaker-swipe-feature: Added TypeScript 5.x (or JavaScript ES2022+) + Next.js 14+ (App Router, static export), Tailwind CSS 3.x, React 18+
+- 005-email-collection-login: ✅ IMPLEMENTED - Email collection screen with blind-lift animation (1200ms), Google Sheets API v4 integration, localStorage persistence, Spanish error messages
+- 003-infobox-background-color: Added dynamic InfoBox background colors from sneakers-data.json
+- 002-me-gustaria-agregar: Added sneaker completion screen tracking
+- 001-sneaker-swipe-feature: Initial swipe gesture implementation
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->

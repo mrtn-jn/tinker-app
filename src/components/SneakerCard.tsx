@@ -104,6 +104,9 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
           willChange: isDragging ? 'transform' : 'auto',
           backfaceVisibility: 'hidden',
           WebkitBackfaceVisibility: 'hidden',
+          WebkitTransform: `translate3d(${translateX}px, 0, 0) rotate(${rotation}deg)`,
+          WebkitFontSmoothing: 'antialiased',
+          transformStyle: 'preserve-3d',
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -114,7 +117,12 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
         <SwipeOverlay type={overlayType} opacity={overlayOpacity} />
 
         {/* Sneaker Image */}
-        <div className="relative w-full aspect-[3/2] bg-gray-100">
+        <div className="relative w-full aspect-[3/2] bg-gray-100" style={{
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}>
           {imageError ? (
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
@@ -135,6 +143,10 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
               sizes="(max-width: 768px) 100vw, 448px"
               priority
               draggable={false}
+              style={{
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+              }}
             />
           )}
         </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { SplashScreen } from '@/components/SplashScreen'
+import { ClientLayout } from '@/components/ClientLayout'
 
 export const metadata: Metadata = {
   title: 'tinker',
@@ -19,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className='overflow-x-hidden'>
-        <SplashScreen />
-        {children}
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   )
