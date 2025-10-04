@@ -29,7 +29,7 @@ export default function EmailCollectionScreen({ onSuccess }: EmailCollectionScre
           src="/info/tinker_splash.png"
           alt="Tinker Logo"
           width={120}
-          height={222}
+          height={185}
           priority
         />
       </div>
