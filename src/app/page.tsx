@@ -6,13 +6,17 @@ import { SneakerCard, SneakerCardRef } from '@/components/SneakerCard';
 import { ActionButtons } from '@/components/ActionButtons';
 import { CompletionScreen } from '@/components/CompletionScreen';
 import { useSneakerQueue } from '@/hooks/useSneakerQueue';
+import { useAggressiveImagePreloader } from '@/hooks/useAggressiveImagePreloader';
 import { getSneakers } from '@/lib/sneakers';
 import { SwipeAction } from '@/types/sneaker';
 
 export default function Home() {
   const sneakers = getSneakers();
-  const { currentSneaker, isComplete, recordSwipe } = useSneakerQueue(sneakers);
+  const { currentSneaker, isComplete, recordSwipe, currentIndex } = useSneakerQueue(sneakers);
   const cardRef = useRef<SneakerCardRef>(null);
+
+  // Aggressively preload ALL images at app start
+  const { isImageLoaded, allImagesLoaded } = useAggressiveImagePreloader({ sneakers });
 
   const handleSwipe = (direction: 'left' | 'right') => {
     const action: SwipeAction = direction === 'right' ? 'LIKE' : 'DISLIKE';

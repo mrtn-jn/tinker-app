@@ -37,7 +37,7 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
       setOverlayType(direction === 'right' ? 'like' : 'dislike');
       setOverlayOpacity(1);
 
-      // Wait 500ms for overlay animation
+      // Wait 500ms for overlay animation then complete
       setTimeout(() => {
         onSwipeComplete(direction);
         setOverlayOpacity(0);
@@ -55,7 +55,7 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
       setOverlayType(direction === 'right' ? 'like' : 'dislike');
       setOverlayOpacity(1);
 
-      // Wait 500ms for overlay animation
+      // Complete swipe after overlay animation
       setTimeout(() => {
         onSwipeComplete(direction);
         setOverlayOpacity(0);
@@ -140,6 +140,9 @@ export const SneakerCard = forwardRef<SneakerCardRef, SneakerCardProps>(
               fill
               className="object-cover"
               onError={() => setImageError(true)}
+              onLoad={() => {
+                // Simple onLoad callback without complex state management
+              }}
               sizes="(max-width: 768px) 100vw, 448px"
               priority
               draggable={false}
